@@ -1,0 +1,42 @@
+.character {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: lightblue;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* .character-idle {
+    animation: breathe 2s ease-in-out infinite;
+  } */
+
+
+.character-img {
+
+    animation: breathe 2s ease-in-out infinite;
+}
+
+.character-idle {
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+    color: white;
+}
+
+
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}

@@ -7,6 +7,24 @@
   pointer-events: none;
 }
 
+.App-title {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: skyblue;
+  color: black;
+}
+
+.btn-start {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -32,6 +50,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
