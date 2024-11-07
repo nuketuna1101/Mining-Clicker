@@ -44,3 +44,17 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+---
+
+(1) 프로젝트 생성 및 react spring 설치
+
+```bash
+npx create-react-app my-animated-app --template typescript
+cd my-animated-app
+npm install @react-spring/web
+
+```
+
+(2) src/components 정리
