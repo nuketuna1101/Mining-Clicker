@@ -1,3 +1,5 @@
+// 퍼포먼스 측정 파일
+
 import { ReportHandler } from 'web-vitals';
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
