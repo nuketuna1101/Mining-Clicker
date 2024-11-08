@@ -13,8 +13,8 @@ const ProgressBar: React.FC = () => {
 
     let cur;
     const handleClick = () => {
-        // setProgress(prev => (prev + 10) % 110);
         setProgress(function() {
+            let tmp = Math.random()
             return 25;
         });
     };
@@ -44,7 +44,7 @@ const ProgressBar: React.FC = () => {
                     transform={`rotate(-90 ${radius} ${radius})`}
                 />
             </svg>
-            <button onClick={handleClick} className="progress-button">Increase Progress</button>
+            <button onClick={handleClick} className="progress-button"></button>
         </div>
     );
 };
