@@ -6,6 +6,7 @@ import Character from './components/Character/Character';
 import Button from './components/Button/Button';
 import Pickaxe from './components/Pickaxe/Pickaxe';
 import Boulder from './components/Boulder/Boulder';
+import Clicker from './components/Clicker/Clicker';
 let cnt = 0;
 
 function App() {
@@ -23,8 +24,6 @@ function App() {
           <Pickaxe/>
           <Boulder/>
         </div>
-
-
       </header>
     </div>
   );
