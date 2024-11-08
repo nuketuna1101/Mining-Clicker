@@ -1,0 +1,12 @@
+.pickaxe-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+.pickaxe-resized {
+    /* width: 600px; */
+    height: 150px;
+    object-fit: cover;
+}
