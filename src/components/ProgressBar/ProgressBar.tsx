@@ -3,10 +3,10 @@ import './ProgressBar.css';
 
 const ProgressBar: React.FC = () => {
     const [progress, setProgress] = useState(0);
-    const radius = 100;          // 반지름
+    const r = 100;          // 반지름
     const stroke = 25;           // 테두리 두께
-    const normalizedRadius = radius - stroke;
-    const circumference = normalizedRadius * 2 * Math.PI;
+    const normalizedr = r - stroke;
+    const circumference = normalizedr * 2 * Math.PI;
     const strokeDashoffset = circumference * (1 - (progress / 100));
 
 
@@ -21,15 +21,14 @@ const ProgressBar: React.FC = () => {
 
     return (
         <div className="progress-bar-container">
-            <svg height={radius * 2} width={radius * 2}>
+            <svg height={r * 2} width={r * 2}>
                 <circle
-                    transform="rotate(45deg)"
                     stroke="teal"
                     fill="transparent"
                     strokeWidth={stroke}
-                    r={normalizedRadius}
-                    cx={radius}
-                    cy={radius}
+                    r={normalizedr}
+                    cx={r}
+                    cy={r}
                 />
                 <circle
                     stroke="yellow"
@@ -38,10 +37,10 @@ const ProgressBar: React.FC = () => {
                     // strokeDasharray={circumference}
                     strokeDasharray={circumference + ' ' + circumference}
                     style={{ strokeDashoffset }}
-                    r={normalizedRadius}
-                    cx={radius}
-                    cy={radius}
-                    transform={`rotate(-90 ${radius} ${radius})`}
+                    r={normalizedr}
+                    cx={r}
+                    cy={r}
+                    transform={`rotate(-90 ${r} ${r})`}
                 />
             </svg>
             <button onClick={handleClick} className="progress-button"></button>
