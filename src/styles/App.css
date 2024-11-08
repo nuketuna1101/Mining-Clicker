@@ -47,7 +47,11 @@
   left: 5%;
 }
 
-
+.display-progressbar {
+  position: absolute;
+  top: 55%;
+  left: 10%;
+}
 
 
 

@@ -3,7 +3,7 @@ import './ProgressBar.css';
 
 const ProgressBar: React.FC<{ progress: number}> = ({progress}) => {
     // const [progress, setProgress] = useState(0);
-    const r = 100;          // 반지름
+    const r = 50;               // 반지름
     const stroke = 25;           // 테두리 두께
     const normalizedr = r - stroke;
     const circumference = normalizedr * 2 * Math.PI;

@@ -17,7 +17,7 @@ function App() {
     const randValue = Math.floor(Math.random() * 100);
     setProgress(prevProgress => {
       let newProgress = prevProgress + randValue;
-      return newProgress>= 100 ? 0 : newProgress;
+      return newProgress >= 100 ? 0 : newProgress;
     });
   };
 
@@ -32,7 +32,9 @@ function App() {
           <Pickaxe progress={progress} addProgress={addProgress} />
           <Boulder />
         </div>
-        <ProgressBar progress={progress} />
+        <div className="display-progressbar">
+          <ProgressBar progress={progress} />
+        </div>
       </header>
     </div>
   );

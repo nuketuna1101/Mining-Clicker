@@ -16,4 +16,5 @@
 .pickaxe-img {
     height: 150px;
     object-fit: cover;
+    z-index: 1000;
 }
