@@ -7,17 +7,17 @@
   pointer-events: none;
 }
 
-.App-title {
+ .App-title {
   position: absolute;
+  display: flex;
   top: 5%;
   left: 5%;
   margin: 10px;
   padding: 10px;
-  border: 2px solid white;
+  /* border: 2px solid white; */
   border-radius: 10px;
-  background-color: skyblue;
-  color: black;
-}
+
+} 
 
 .btn-start {
   position: absolute;
