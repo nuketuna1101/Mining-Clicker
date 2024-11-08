@@ -2,16 +2,15 @@ import React from 'react';
 import './Button.css';
 
 interface ButtonProps {
-    className: string;
     label: string;
     onClick: () => void;
 }
 
 class Button extends React.Component<ButtonProps> {
     render() {
-        const { className, label, onClick } = this.props;
+        const { label, onClick } = this.props;
         return (
-            <button className={`btn ${className}`} onClick={onClick}>
+            <button className={`btn`} onClick={onClick}>
                 {label}
             </button>
         );
