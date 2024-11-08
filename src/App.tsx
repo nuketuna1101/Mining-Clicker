@@ -2,11 +2,10 @@ import React from 'react';
 import Swal from 'sweetalert2';
 import './styles/App.css';
 import AnimatedBox from './components/AnimatedBox';
-import logo from './assets/logo.svg';
 import Character from './components/Character/Character';
 import Button from './components/Button/Button';
-import MiningAnimation from './components/MiningAnimation/MiningAnimation';
 import Pickaxe from './components/Pickaxe/Pickaxe';
+import Boulder from './components/Boulder/Boulder';
 let cnt = 0;
 
 function App() {
@@ -16,17 +15,13 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="App-title">
-          <h1> Mining Clicker {cnt}</h1>
-          <MiningAnimation/>
-        </div>
-        <div>
-          <Button className="btn-start" label="Start Game" onClick={handleClick} />
+          <h1> Mining Clicker</h1>
         </div>
 
-        <div>
-          <p>하이</p>
-          <h1> Mining Anim </h1>
+
+        <div className="display-mining">
           <Pickaxe/>
+          <Boulder/>
         </div>
 
 
