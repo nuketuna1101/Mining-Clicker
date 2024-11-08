@@ -1,0 +1,21 @@
+.progress-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .progress-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #76c7c0;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .progress-button:hover {
+    background-color: #60a8a6;
+  }
+  

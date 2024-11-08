@@ -1,12 +1,12 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 import './styles/App.css';
-import AnimatedBox from './components/AnimatedBox';
-import Character from './components/Character/Character';
-import Button from './components/Button/Button';
 import Pickaxe from './components/Pickaxe/Pickaxe';
 import Boulder from './components/Boulder/Boulder';
-import Clicker from './components/Clicker/Clicker';
+import ProgressBar from './components/ProgressBar/ProgressBar';
+
+
+
 let cnt = 0;
 
 function App() {
@@ -24,6 +24,10 @@ function App() {
           <Pickaxe/>
           <Boulder/>
         </div>
+
+
+        <ProgressBar/>
+
       </header>
     </div>
   );
