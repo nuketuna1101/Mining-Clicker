@@ -1,16 +1,7 @@
-// map에 사용될 광물 속성값들
-interface Mineral {
-    id: number;
-    name: string;
-    quantity: number;
-    price: number;
-    rarity: number;
-}
+// mineralService 클래스
+// 광물에 대한 처리
+import { Mineral, mineralNames, mineralPrice, mineralRarity, mineralCumulRarity } from "../data/minerals";
 
-const mineralNames: Array<string> = ['diamond', 'emerald', 'ruby', 'opal','quartz','topaz','gold', 'silver', 'bronze'];
-const mineralPrice: Array<number> = [100000, 5000, 3000, 2000, 200, 1500, 800, 600, 250];
-const mineralRarity: Array<number> = [1, 3, 5, 10, 20, 10, 10, 15, 26];
-const mineralCumulRarity: Array<number> = [1, 4, 9, 19, 39, 49, 59, 74, 100];
 
 class MineralService {
     // Map 자료구조: key = 광물이름 / value = 광물정보
@@ -19,7 +10,7 @@ class MineralService {
     constructor() {
         this.mineralStorage = new Map<string, Mineral>();
         for (let i = 0; i < 9; i++){
-            this.mineralStorage.set(mineralNames[i], { id: i, name: mineralNames[i], quantity: 0, price: mineralPrice[i], rarity: mineralRarity[i] });
+            this.mineralStorage.set(mineralNames[i], { id: i, name: mineralNames[i], quantity: 0, price: mineralPrice[i], rarity: mineralRarity[i], isDiscoverdBefore: false });
         }
     }
     // getter 메서드 ==================================================================================
@@ -30,15 +21,15 @@ class MineralService {
         return Array.from(this.mineralStorage.values());
     }
     //================================================================================================
-    // 광물 획득 : quantity 에 추가
-    addMineral(name: string, amount: number): void {
+    // private 함수: 
+    private addMineral(name: string, amount: number): void {
         const mineral = this.mineralStorage.get(name);
         if (mineral) {
             mineral.quantity += amount;
             this.mineralStorage.set(name, mineral);
         }
     }
-    chooseRandomMineralIndex(): number{
+    private chooseRandomMineralIndex(): number{
         const myRand = Math.round(Math.random() * 100);
         for (let i = 0; i < 9; i++){
             if (myRand <= mineralCumulRarity[i])
@@ -46,9 +37,18 @@ class MineralService {
         }
         return -1;
     }
+    private checkMineralDiscoverdBefore(name: string): void{
+        const mineral = this.mineralStorage.get(name);
+        if (!mineral?.isDiscoverdBefore)
+            alert("첫 획득! " + name);
+    }
+    // ===============================================================================================
+    // 랜덤 광물 획득 flow: 첫 획득인지 확인하고, 해금 이벤트 + 광물 추가해주기
     addRandommineral(): void {
         const randIndex: number = this.chooseRandomMineralIndex();
-        this.addMineral( mineralNames[randIndex], 1);
+        const mineralName = mineralNames[randIndex];
+        this.checkMineralDiscoverdBefore(mineralName);
+        this.addMineral( mineralName, 1);
     }
 }
 
