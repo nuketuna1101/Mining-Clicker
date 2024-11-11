@@ -66,6 +66,19 @@ class MineralService {
         this.checkMineralDiscoverdBefore(mineralName);
         this.addMineral( mineralName, 1);
     }
+
+
+    async fetchMineralPrices(): Promise<Mineral[]> {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const prices = this.getAllMinerals().map(mineral => ({
+                    ...mineral,
+                    price: mineral.price + Math.round(Math.random() * 100)
+                }));
+                resolve(prices);
+            }, 1000);
+        })
+    }
 }
 
 export default new MineralService();
