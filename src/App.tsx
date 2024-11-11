@@ -1,37 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import './styles/App.css';
+// == COMPONENTS == //
+// ===========================================================================
 import Pickaxe from './components/Pickaxe/Pickaxe';
 import Boulder from './components/Boulder/Boulder';
 import ProgressBar from './components/ProgressBar/ProgressBar';
 import Ore from './components/Ore/Ore';
-
-let clickCnt = 0;
-let minedCnt = 0;
+// ===========================================================================
+// == HOOKS ==
+import { useMining } from './hooks/useMining'
+// ===========================================================================
+// == SERVICES ==
+import countService from './services/countService';
+// ===========================================================================
 
 function App() {
-  // props : progress :: 현재 광질 진행도
-  const [progress, setProgress] = useState(0);
-
-
-  const [animation, setAnimation] = useState(false);
-
-
-  // addProgress : 현재 단계에선 10% 진행도 증가
-  const addProgress = () => {
-    clickCnt++;
-    const randValue = Math.floor(Math.random() * 100);
-    setProgress(prevProgress => {
-      let newProgress = prevProgress + randValue;
-      if (newProgress >= 100) {
-        minedCnt++;
-        setAnimation(true);
-        setTimeout(() => setAnimation(false), 1000); // 1초 동안 애니메이션을 실행
-        newProgress = 0;
-      }
-      return newProgress;
-    });
-  };
+  const { progress, animation, addProgress, minerals } = useMining();
 
   return (
     <div className="App">
@@ -50,14 +35,20 @@ function App() {
 
         <div className="display-variables-counter">
           <p>
-            총 곡괭이질 횟수 : {clickCnt}
+            총 곡괭이질 횟수 : {countService.getClickCnt()}
           </p>
           <p>
-            깐 돌 개수 : {minedCnt}
+            깐 돌 개수 : {countService.getMinedCnt()}
           </p>
         </div>
-
-        <Ore type={0} />
+        <div className="ore-storage">
+          {minerals.map(mineral => (
+            <div className='ore-each'>
+              <Ore type={mineral.id} />
+              <p> {mineral.quantity} </p>
+            </div>
+          ))}
+        </div>
 
       </header>
     </div>
