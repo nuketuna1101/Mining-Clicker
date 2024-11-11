@@ -31,7 +31,6 @@ const oreImageAtlas = [
 
   return (
     <div className="ore-img">
-      {/* <img className="ore-frame" src={oreImageAtlas[type]} alt=""/> */}
       <img className="ore-frame" src={oreImageAtlas[type]} alt=""/>
       </div>
   );
