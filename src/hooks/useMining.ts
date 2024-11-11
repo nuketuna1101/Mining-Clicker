@@ -10,15 +10,16 @@ export const useMining = () => {
 
     // addProgress : 현재 단계에선 10% 진행도 증가
     const addProgress = () => {
-        //clickCnt++;
+        // 클릭 횟수 증가
         countService.addClickCnt();
+        // 랜덤하게 채광 진행도 증가
         const randValue = Math.floor(Math.random() * 100);
         setProgress(prevProgress => {
             let newProgress = prevProgress + randValue;
+            // 채광도 100% 이상 도달시
             if (newProgress >= 100) {
-                //minedCnt++;
+                // 채광 성공 카운트, 랜덤한 광물 자원 획득
                 countService.addMinedCnt();
-                // 광물 자원 획득 addMineral
                 mineralService.addRandommineral();
                 setAnimation(true);
                 setTimeout(() => setAnimation(false), 1000); // 1초 동안 애니메이션을 실행
