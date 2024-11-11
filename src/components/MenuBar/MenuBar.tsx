@@ -7,6 +7,7 @@ const MyAppBar = styled(AppBar)({
     position: 'fixed',
     top: '2.5%',
     width: '17.5%',
+    zIndex: 1000,
 });
 const MyTabs = styled(Tabs)({
     flexGrow: 1,
