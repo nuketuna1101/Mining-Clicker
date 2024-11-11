@@ -4,6 +4,13 @@ import { styled } from "@mui/material/styles"
 
 const MyAppBar = styled(AppBar)({
     backgroundColor: '#49505e',
+    position: 'fixed',
+    top: '2.5%',
+    width: '17.5%',
+});
+const MyTabs = styled(Tabs)({
+    flexGrow: 1,
+    justifyContent: 'center'
 });
 
 const MyTab = styled(Tab)({
@@ -21,13 +28,30 @@ const MenuBar: React.FC = () => {
 
     return (
         <>
-            <MyAppBar position="static" className="appbar">
-                <Tabs value={value} onChange={handleChange} aria-label="Main Tabs">
+            <MyAppBar position="static" className="menubar">
+                <MyTabs value={value} onChange={handleChange} aria-label="Main Tabs">
                     <MyTab label="Home" />
                     <MyTab label="Price Table" />
                     <MyTab label="Shop" />
-                </Tabs>
+                </MyTabs>
             </MyAppBar>
+            <div className="menubar-display-content">
+
+                {value === 0 && (
+                    <div className="appbar-home">
+                        <h2>Home</h2>
+                    </div>)}
+                {value === 1 && (
+                    <div className="appbar-price-table">
+                        <h2>Price Table</h2>
+                    </div>)}
+                {value === 2 && (
+                    <div className="appbar-shop">
+                        <h2>Shop</h2>
+                    </div>)}
+
+            </div>
+
         </>
     );
 };

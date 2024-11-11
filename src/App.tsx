@@ -25,13 +25,10 @@ function App() {
         <div className="App-title">
           <h1> Mining Clicker</h1>
         </div>
-        <div className="App-topbar">
-          <MenuBar />
-        </div>
       </header>
-
-
       <div className='App-body'>
+        <MenuBar />
+
         <div className="display-mining">
           <Pickaxe progress={progress} addProgress={addProgress} />
           <Boulder />
@@ -58,41 +55,6 @@ function App() {
       </div>
     </div>
   );
-
-
-  // return (
-  //   <div className="App">
-  //     <div className="App-title">
-  //       <h1> Mining Clicker</h1>
-  //     </div>
-
-  //     <div className="display-mining">
-  //       <Pickaxe progress={progress} addProgress={addProgress} />
-  //       <Boulder />
-  //     </div>
-  //     <div className="display-progressbar">
-  //       <ProgressBar progress={progress} animation={animation} />
-  //     </div>
-
-  //     <div className="display-variables-counter">
-  //       <p>
-  //         총 곡괭이질 횟수 : {countService.getClickCnt()}
-  //       </p>
-  //       <p>
-  //         깐 돌 개수 : {countService.getMinedCnt()}
-  //       </p>
-  //     </div>
-  //     <div className="ore-storage">
-  //       {minerals.map(mineral => (
-  //         <div className='ore-each'>
-  //           <Ore type={mineral.id} />
-  //           <p> {mineral.quantity} </p>
-  //         </div>
-  //       ))}
-  //     </div>
-
-  //   </div>
-  // );
 }
 
 export default App;
