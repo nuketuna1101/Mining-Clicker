@@ -15,24 +15,24 @@ interface OreProps {
 }
 
 
-const Ore: React.FC<OreProps> = ({type}) => {
+const Ore: React.FC<OreProps> = ({ type }) => {
 
-const oreImageAtlas = [
-  oreImg01,
-  oreImg02,
-  oreImg03,
-  oreImg04,
-  oreImg05,
-  oreImg06,
-  oreImg07,
-  oreImg08,
-  oreImg09,
-];
+  const oreImageAtlas = [
+    oreImg01,
+    oreImg02,
+    oreImg03,
+    oreImg04,
+    oreImg05,
+    oreImg06,
+    oreImg07,
+    oreImg08,
+    oreImg09,
+  ];
 
   return (
     <div className="ore-img">
-      <img className="ore-frame" src={oreImageAtlas[type]} alt=""/>
-      </div>
+      <img className="ore-frame" src={oreImageAtlas[type]} alt="" />
+    </div>
   );
 };
 
