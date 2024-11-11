@@ -3,15 +3,10 @@
 .App {
   text-align: center;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
  .App-title {
   position: absolute;
-  display: flex;
-  top: 5%;
   left: 5%;
+  display: flex;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
@@ -19,25 +14,34 @@
 /* =================================================================================== */
 /* =================================================================================== */
 
-.btn-start {
-  position: absolute;
-  top: 10%;
-  left: 25%;
-}
+
 /* =================================================================================== */
 /* =================================================================================== */
 
 
 .App-header {
   background-color: #282c34;
+  color: white;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-body {
+  background-color: #282c34;
+  background-color: #444b58;
+  color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
+
 /* =================================================================================== */
 /* =================================================================================== */
 
@@ -49,21 +53,23 @@
 
 .display-progressbar {
   position: absolute;
-  top: 55%;
-  left: 10%;
+  top: 60%;
+  left: 12%;
 }
-
-
-
 
 /* =================================================================================== */
 /* =================================================================================== */
 .ore-storage {
   position: absolute;
-  left: 80%
+  top: 15%;
+  left: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .ore-each {
   display: flex;
-
+  flex: 1 1 calc(50% - 10px); /* 두 개의 열로 만들기 위해 50% 너비 설정, 여백 제외 */
+  margin: 0px;
+  box-sizing: border-box;
 }
-
