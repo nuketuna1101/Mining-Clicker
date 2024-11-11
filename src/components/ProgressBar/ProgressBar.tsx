@@ -1,8 +1,7 @@
 import React from 'react';
 import './ProgressBar.css';
 
-const ProgressBar: React.FC<{ progress: number}> = ({progress}) => {
-    // const [progress, setProgress] = useState(0);
+const ProgressBar: React.FC<{ progress: number, animation: boolean}> = ({progress, animation}) => {
     const r = 50;               // 반지름
     const stroke = 25;           // 테두리 두께
     const normalizedr = r - stroke;
@@ -13,12 +12,13 @@ const ProgressBar: React.FC<{ progress: number}> = ({progress}) => {
         <div className="progress-bar-container">
             <svg height={r * 2} width={r * 2}>
                 <circle
-                    stroke="teal"
+                    stroke="black"
                     fill="transparent"
                     strokeWidth={stroke}
                     r={normalizedr}
                     cx={r}
                     cy={r}
+                    className={animation ? 'progress-bar-animation' : ''}
                 />
                 <circle
                     stroke="yellow"

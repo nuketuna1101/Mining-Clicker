@@ -3,9 +3,9 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
-  }
-  
-  .progress-button {
+}
+
+.progress-button {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #76c7c0;
@@ -13,9 +13,30 @@
     color: white;
     cursor: pointer;
     border-radius: 5px;
-  }
-  
-  .progress-button:hover {
+}
+
+.progress-button:hover {
     background-color: #60a8a6;
-  }
-  
+}
+
+
+
+/*  */
+
+.progress-bar-animation {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        stroke: black;
+    }
+
+    50% {
+        stroke: red;
+    }
+
+    100% {
+        stroke: black;
+    }
+}
