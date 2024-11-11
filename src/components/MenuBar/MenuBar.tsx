@@ -2,6 +2,13 @@ import React from "react";
 import { AppBar, Tab, Tabs } from "@mui/material";
 import { styled } from "@mui/material/styles"
 
+// ===========================================================================
+// == HOOKS ==
+// import { usePriceTable } from "../../hooks/usePriceTable";
+// ===========================================================================
+import mineralService from "../../services/mineralService";
+import { Mineral } from "../../data/minerals";
+
 const MyAppBar = styled(AppBar)({
     backgroundColor: '#49505e',
     position: 'fixed',
@@ -21,10 +28,15 @@ const MyTab = styled(Tab)({
 });
 
 const MenuBar: React.FC = () => {
+    // 메뉴 눌러서 값 설정
     const [value, setValue] = React.useState<number>(0);
-
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
+    const [prices, setprices] = React.useState<Mineral[]>([]);
+    const handleChange = async (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
+        if (newValue === 1) {
+            const prices = await mineralService.fetchMineralPrices();
+            setprices(prices);
+        }
     };
 
     return (
@@ -40,11 +52,18 @@ const MenuBar: React.FC = () => {
 
                 {value === 0 && (
                     <div className="appbar-home">
-                        <h2>Home</h2>
+                        <h2>Login</h2>
                     </div>)}
                 {value === 1 && (
                     <div className="appbar-price-table">
                         <h2>Price Table</h2>
+                        <ul>
+                            {prices.map((mineral) => (
+                                <li key={mineral.id}>
+                                    {mineral.name}: $ {mineral.price.toFixed(2)}
+                                </li>
+                            ))}
+                        </ul>
                     </div>)}
                 {value === 2 && (
                     <div className="appbar-shop">
@@ -58,3 +77,6 @@ const MenuBar: React.FC = () => {
 };
 
 export default MenuBar;
+
+
+//-------------------------
