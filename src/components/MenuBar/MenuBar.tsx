@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles"
 // ===========================================================================
 import mineralService from "../../services/mineralService";
 import { Mineral } from "../../data/minerals";
+import Login from "../Login/Login";
 
 const MyAppBar = styled(AppBar)({
     backgroundColor: '#49505e',
@@ -51,11 +52,11 @@ const MenuBar: React.FC = () => {
             <div className="menubar-display-content">
 
                 {value === 0 && (
-                    <div className="appbar-home">
-                        <h2>Login</h2>
+                    <div className="menubar-home">
+                        <Login />
                     </div>)}
                 {value === 1 && (
-                    <div className="appbar-price-table">
+                    <div className="menubar-price-table">
                         <h2>Price Table</h2>
                         <ul>
                             {prices.map((mineral) => (
@@ -66,7 +67,7 @@ const MenuBar: React.FC = () => {
                         </ul>
                     </div>)}
                 {value === 2 && (
-                    <div className="appbar-shop">
+                    <div className="menubar-shop">
                         <h2>Shop</h2>
                     </div>)}
 
