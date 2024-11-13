@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { showAlert, showToast } from '../services/swalService';
 
-// 커스텀 훅: useMining
+// 커스텀 훅: useLogin
 export const useLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,13 +18,24 @@ export const useLogin = () => {
 
             const data = await response.json();
             if (response.ok) {
-                console.log(`[Success] ${data}`);
+                showToast(
+                    "Login Success", 
+                    "success", 
+                    3000
+                );
             }
             else {
-                console.log(`[Error] response err: ${data.message}`);
+                showAlert(
+                    "Error", `[Error] response err: ${data.message}`, 
+                    "error"
+                );
             }
         } catch (error: any) {
-            console.log(`[Error] fetch err: ${error.message}`);
+            showAlert(
+                "Error", 
+                `[Error] fetch err: ${error.message}`, 
+                "error"
+            );
         }
     };
 

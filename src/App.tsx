@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
 import './styles/App.css';
 // == COMPONENTS == //
 // ===========================================================================

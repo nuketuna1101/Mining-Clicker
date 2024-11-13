@@ -1,10 +1,7 @@
 // mineralService 클래스
 // 광물에 대한 처리
 import { Mineral, mineralNames, mineralPrice, mineralRarity, mineralCumulRarity, oreImageAtlas } from "../data/minerals";
-import Swal from "sweetalert2";
-import withReactContent from 'sweetalert2-react-content';
-
-const mySwal = withReactContent(Swal);
+import { showAlert } from "./swalService";
 
 class MineralService {
     // Map 자료구조: key = 광물이름 / value = 광물정보
@@ -43,16 +40,11 @@ class MineralService {
     private checkMineralDiscoverdBefore(name: string): void{
         const mineral = this.mineralStorage.get(name);
         if (mineral && !mineral.isDiscoverdBefore){
-            // alert("첫 획득! " + name);
-            mySwal.fire({
-                title: "Achievement",
-                text: `First Discovery of ${name}`,
-                icon: "success",
-                confirmButtonText: "Wow!",
-                imageUrl: `${oreImageAtlas[mineral.id]}`, // 여기에 이미지 URL을 추가합니다.
-                imageWidth: 50,
-                imageHeight: 50,
-            });
+            showAlert(
+                "Achievement", 
+                `First Discovery of ${name}`,  
+                "success"
+            );
             mineral.isDiscoverdBefore = true;
             this.mineralStorage.set(name, mineral);
         }
