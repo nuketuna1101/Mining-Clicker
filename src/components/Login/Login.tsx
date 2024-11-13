@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSpring, animated } from '@react-spring/web';
+import { useLogin } from '../../hooks/useLogin';
 import './Login.css';
 
 const Login: React.FC = () => {
     // username과 password 상태
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const { username, setUsername, password, setPassword, login } = useLogin();
     // 페이드인 애니메이션
     const fadeIn = useSpring({
         from: { opacity: 0 },
         to: { opacity: 1 },
         config: { duration: 750 }
     });
-
-    const handleSubmit = (event: React.FormEvent) => {
+    // login 버튼 누를시 : 
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        // 여기에 로그인 로직을 추가하세요
-        console.log('[Login Component]:', { username, password });
+        // useLogin hook을 통한 login 로직
+        login();
     };
 
     return (
