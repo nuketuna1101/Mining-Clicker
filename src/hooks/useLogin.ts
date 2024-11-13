@@ -5,6 +5,7 @@ import { showAlert, showToast } from '../services/swalService';
 export const useLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isCertified, setIsCertified] = useState(false);
 
     // login : 현재 단계에선 10% 진행도 증가
     const login = async () => {
@@ -23,6 +24,8 @@ export const useLogin = () => {
                     "success", 
                     3000
                 );
+                // 로그인 성공, 인증됨 상태 넘겨주기
+                setIsCertified(true);
             }
             else {
                 showAlert(
@@ -42,6 +45,6 @@ export const useLogin = () => {
     return {
         username, setUsername,
         password, setPassword,
-        login,
+        login, isCertified
     };
 }

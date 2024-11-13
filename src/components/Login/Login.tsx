@@ -5,7 +5,7 @@ import './Login.css';
 
 const Login: React.FC = () => {
     // username과 password 상태
-    const { username, setUsername, password, setPassword, login } = useLogin();
+    const { username, setUsername, password, setPassword, login, isCertified } = useLogin();
     // 페이드인 애니메이션
     const fadeIn = useSpring({
         from: { opacity: 0 },
@@ -19,8 +19,16 @@ const Login: React.FC = () => {
         login();
     };
 
-    return (
-        <animated.div style={fadeIn} className="login-container">
+
+    const userInfo = (
+        <div className="user-info">
+            <h2>Welcome, {username}!</h2>
+            <p>You are now logged in.</p>
+        </div>
+    );
+
+    const loginScreen = (
+        <>
             <h2 className="login-header">Login</h2>
             <form onSubmit={handleSubmit}>
                 <div className="login-section-username">
@@ -51,6 +59,12 @@ const Login: React.FC = () => {
                 </div>
                 <button className="button-login" type="submit">Login</button>
             </form>
+        </>
+    );
+
+    return (
+        <animated.div style={fadeIn} className="login-container">
+            {isCertified ? userInfo : loginScreen}
         </animated.div>
     );
 };
