@@ -13,6 +13,7 @@ import { useMining } from './hooks/useMining'
 // ===========================================================================
 // == SERVICES ==
 import countService from './services/countService';
+import { LoginProvider } from './contexts/LoginContext';
 // ===========================================================================
 
 function App() {
@@ -26,7 +27,9 @@ function App() {
         </div>
       </header>
       <div className='App-body'>
-        <MenuBar />
+        <LoginProvider>
+          <MenuBar />
+        </LoginProvider>
 
         <div className="display-mining">
           <Pickaxe progress={progress} addProgress={addProgress} />

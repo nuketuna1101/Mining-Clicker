@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { showAlert, showToast } from '../services/swalService';
+import { useAuth } from '../contexts/LoginContext';
 
 // 커스텀 훅: useLogin
 export const useLogin = () => {
-    const [username, setUsername] = useState('');
+    //const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [isCertified, setIsCertified] = useState(false);
+    const {isCertified, setIsCertified, username, setUsername} = useAuth();
 
     // login : 현재 단계에선 10% 진행도 증가
     const login = async () => {
@@ -40,6 +41,11 @@ export const useLogin = () => {
                 "error"
             );
         }
+    };
+
+    const logout = () => {
+        setIsCertified(false);
+        setUsername('');
     };
 
     return {
