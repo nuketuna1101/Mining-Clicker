@@ -23,7 +23,10 @@ const Login: React.FC = () => {
     const userInfo = (
         <div className="user-info">
             <h2>Welcome, {username}!</h2>
-            <p>You are now logged in.</p>
+            <p>
+                You are now logged in.<br />
+                Click the Pickaxe to mine minerals.
+            </p>
         </div>
     );
 

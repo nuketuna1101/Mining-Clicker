@@ -19,6 +19,39 @@ import { LoginProvider } from './contexts/LoginContext';
 function App() {
   const { progress, animation, addProgress, minerals } = useMining();
 
+
+
+  const gamePlayScreen = (
+    <>
+      <div className="display-mining">
+        <Pickaxe progress={progress} addProgress={addProgress} />
+        <Boulder />
+      </div>
+      <div className="display-progressbar">
+        <ProgressBar progress={progress} animation={animation} />
+      </div>
+      <div className="display-variables-counter">
+        <p>
+          총 곡괭이질 횟수 : {countService.getClickCnt()}
+        </p>
+        <p>
+          깐 돌 개수 : {countService.getMinedCnt()}
+        </p>
+      </div>
+      <div className="ore-storage">
+        {minerals.map(mineral => (
+          <div className='ore-each' key={mineral.id}>
+            <Ore type={mineral.id} />
+            <p> {mineral.quantity} </p>
+          </div>
+        ))}
+      </div>
+    </>
+
+  );
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -27,35 +60,17 @@ function App() {
         </div>
       </header>
       <div className='App-body'>
-        <LoginProvider>
-          <MenuBar />
-        </LoginProvider>
-
-        <div className="display-mining">
-          <Pickaxe progress={progress} addProgress={addProgress} />
-          <Boulder />
-        </div>
-        <div className="display-progressbar">
-          <ProgressBar progress={progress} animation={animation} />
-        </div>
-        <div className="display-variables-counter">
-          <p>
-            총 곡괭이질 횟수 : {countService.getClickCnt()}
-          </p>
-          <p>
-            깐 돌 개수 : {countService.getMinedCnt()}
-          </p>
-        </div>
-        <div className="ore-storage">
-          {minerals.map(mineral => (
-            <div className='ore-each' key={mineral.id}>
-              <Ore type={mineral.id} />
-              <p> {mineral.quantity} </p>
-            </div>
-          ))}
-        </div>
+        <LoginProvider
+          unauthChildren={<MenuBar />}
+          authChildren={
+            <>
+              <MenuBar />
+              {gamePlayScreen}
+            </>
+          }
+        />
       </div>
-    </div>
+    </div >
   );
 }
 
