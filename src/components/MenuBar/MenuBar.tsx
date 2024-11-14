@@ -10,6 +10,9 @@ import mineralService from "../../services/mineralService";
 import { Mineral } from "../../data/minerals";
 import Login from "../Login/Login";
 
+import "./MenuBar.css";
+
+
 const MyAppBar = styled(AppBar)({
     backgroundColor: '#49505e',
     position: 'fixed',
@@ -36,6 +39,7 @@ const MenuBar: React.FC = () => {
         setValue(newValue);
         if (newValue === 1) {
             const prices = await mineralService.fetchMineralPrices();
+            // const prices = await mineralService.fetchMineralPricesRenewal();
             setprices(prices);
         }
     };
@@ -58,10 +62,11 @@ const MenuBar: React.FC = () => {
                 {value === 1 && (
                     <div className="menubar-price-table">
                         <h2>Price Table</h2>
-                        <ul>
+                        <ul className="price-list">
                             {prices.map((mineral) => (
-                                <li key={mineral.id}>
-                                    {mineral.name}: $ {mineral.price.toFixed(2)}
+                                <li className="price-item" key={mineral.id}>
+                                    <span className="mineral-name">{mineral.name}</span>
+                                    <span className="mineral-price">${mineral.price.toFixed(2)}</span>
                                 </li>
                             ))}
                         </ul>
