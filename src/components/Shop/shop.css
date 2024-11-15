@@ -1,0 +1,52 @@
+.shop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #3c414d;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px auto;
+}
+
+.sell-mineral h2 {
+    color: #49505e;
+    margin-bottom: 20px;
+}
+
+.shop-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.shop-section-text {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #49505e;
+}
+
+.shop-section select, 
+.shop-section input {
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.button-sell {
+    padding: 10px 20px;
+    background-color: #49505e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-sell:hover {
+    background-color: #374257;
+}

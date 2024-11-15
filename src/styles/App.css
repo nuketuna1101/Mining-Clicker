@@ -1,0 +1,113 @@
+/* =================================================================================== */
+/* 메인화면 관련 주요 CSS */
+.App {
+  text-align: center;
+}
+ .App-title {
+  position: absolute;
+  left: 5%;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+} 
+/* =================================================================================== */
+/* =================================================================================== */
+
+
+/* =================================================================================== */
+/* =================================================================================== */
+
+
+.App-header {
+  background-color: #282c34;
+  color: white;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-body {
+  background-color: #282c34;
+  background-color: #444b58;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+
+.display-mining {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+}
+
+.display-progressbar {
+  position: absolute;
+  top: 60%;
+  left: 12%;
+}
+
+.display-variables-counter {
+  position: absolute;
+  top: 70%;
+  width: 600px;
+  height: 180px;
+  background-color: #65708a;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
+.ore-storage {
+  position: absolute;
+  top: 15%;
+  left: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.ore-each {
+  display: flex;
+  flex: 1 1 calc(50% - 10px); /* 두 개의 열로 만들기 위해 50% 너비 설정, 여백 제외 */
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+
+/* =================================================================================== */
+/* =================================================================================== */
+
+.menubar-display-content {
+  position: absolute;
+  top: 15%;
+  width: 600px;
+  height: 400px;
+  background-color: #5d6c8d;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  /* display: flex; */
+  font-size: 15px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* =================================================================================== */
+/* =================================================================================== */
