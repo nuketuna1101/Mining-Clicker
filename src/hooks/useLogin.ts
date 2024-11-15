@@ -30,14 +30,14 @@ export const useLogin = () => {
             }
             else {
                 showAlert(
-                    "Error", `[Error] response err: ${data.message}`, 
+                    "Error", `Error on response: ${data.message}`, 
                     "error"
                 );
             }
         } catch (error: any) {
             showAlert(
                 "Error", 
-                `[Error] fetch err: ${error.message}`, 
+                `Error on fetching : ${error.message}`, 
                 "error"
             );
         }
