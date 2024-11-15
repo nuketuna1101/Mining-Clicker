@@ -9,8 +9,10 @@ import { styled } from "@mui/material/styles"
 import mineralService from "../../services/mineralService";
 import { Mineral } from "../../data/minerals";
 import Login from "../Login/Login";
+import { useAuth } from '../../contexts/LoginContext';
 
 import "./MenuBar.css";
+import Shop from "../Shop/shop";
 
 
 const MyAppBar = styled(AppBar)({
@@ -35,7 +37,12 @@ const MenuBar: React.FC = () => {
     // 메뉴 눌러서 값 설정
     const [value, setValue] = React.useState<number>(0);
     const [prices, setprices] = React.useState<Mineral[]>([]);
+    const {isCertified, setIsCertified, username, setUsername} = useAuth();
+
+    // 탭 누를 때의 
     const handleChange = async (event: React.ChangeEvent<{}>, newValue: number) => {
+        if(!isCertified)    return;
+
         setValue(newValue);
         if (newValue === 1) {
             const prices = await mineralService.fetchMineralPrices();
@@ -73,7 +80,8 @@ const MenuBar: React.FC = () => {
                     </div>)}
                 {value === 2 && (
                     <div className="menubar-shop">
-                        <h2>Shop</h2>
+                        {/* <h2>Shop</h2> */}
+                        <Shop />
                     </div>)}
 
             </div>

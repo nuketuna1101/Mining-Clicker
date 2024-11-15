@@ -14,6 +14,7 @@ import { useMining } from './hooks/useMining'
 // == SERVICES ==
 import countService from './services/countService';
 import { LoginProvider } from './contexts/LoginContext';
+import mineralService from './services/mineralService';
 // ===========================================================================
 
 function App() {
@@ -49,6 +50,13 @@ function App() {
     </>
 
   );
+
+
+  const allMinerals = mineralService.getAllMinerals();
+
+  const handleSell = (mineralName: string, quantity: number) => { 
+    alert(`Sold ${quantity} of ${mineralName}`); // 이 부분에서 실제 판매 로직을 구현할 수 있습니다.
+  };
 
 
 
